@@ -30,7 +30,7 @@ def index():
         save_path = os.path.join(upload_path, xmind_file_name)
         xmind_file_obj.save(save_path)
         # 生成excel文件名
-        excel_file_name = xmind_file_name.rsplit(".", 1)[0] + '.xls'
+        excel_file_name = xmind_file_name.replace(' ', '').rsplit(".", 1)[0] + '.xls'
         # 调用方法将xmind文件转换为excel文件
         get_xmind_content(save_path, os.path.join(upload_path, excel_file_name))
         res['file_url'] = os.path.join('/download/', excel_file_name)
